@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-28 9:37:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jianZhi.ssh.entities.Student" table="STUDENT">
+        <id name="student_id" type="java.lang.Long">
+            <column name="STUDENT_ID"/>
+            <generator class="native" />
+        </id>
+        
+        <property name="username" type="java.lang.String">
+            <column name="USER_NAME" />
+        </property>
+        
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        
+        <many-to-one name="school" class="com.jianZhi.ssh.entities.School" lazy="false">
+            <column name="SCHOOL_ID" />
+        </many-to-one>
+        
+        <property name="telphone" type="java.lang.String">
+            <column name="TELPHONE" />
+        </property>
+        
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+    </class>
+</hibernate-mapping>

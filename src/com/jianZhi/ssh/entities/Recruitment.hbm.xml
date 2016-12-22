@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-28 9:37:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jianZhi.ssh.entities.Recruitment" table="RECRUITMENT">
+    
+        <id name="recruitment_id" type="java.lang.Integer">
+            <column name="RECRUITMENT_ID" />
+            <generator class="native" />
+        </id>
+    
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        
+        <many-to-one name="city" class="com.jianZhi.ssh.entities.City" fetch="join">
+            <column name="CITY" />
+        </many-to-one>
+        
+        <property name="district" type="java.lang.String">
+            <column name="DISTRICT" />
+        </property>
+        
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        
+        <property name="salary" type="java.lang.Integer">
+            <column name="SALARY" />
+        </property>
+        
+        <property name="phone" type="java.lang.String">
+            <column name="PHONE" />
+        </property>
+        
+        <property name="beginYear" type="java.lang.Integer">
+            <column name="BEGIN_YEAR" />
+        </property>
+        
+        <property name="beginMonth" type="java.lang.Integer">
+            <column name="BEGIN_MONTH" />
+        </property>
+        
+        <property name="beginDay" type="java.lang.Integer">
+            <column name="BEGIN_DAY" />
+        </property>
+        
+        <property name="endYear" type="java.lang.Integer">
+            <column name="END_YEAR" />
+        </property>
+        
+        <property name="endMonth" type="java.lang.Integer">
+            <column name="END_MONTH" />
+        </property>
+        
+        <property name="endDay" type="java.lang.Integer">
+            <column name="END_DAY" />
+        </property>
+        
+        <many-to-one name="correspond" class="com.jianZhi.ssh.entities.Correspond"  fetch="join" lazy="false">
+            <column name="CORRESPOND_NAME" />
+        </many-to-one>
+        
+        <many-to-one name="workKind" class="com.jianZhi.ssh.entities.WorkKind"  fetch="join" lazy="false">
+            <column name="WORKKIND_NAME" />
+        </many-to-one>
+        
+        <property name="date" type="java.sql.Timestamp">
+            <column name="DATE" />
+        </property>
+        
+        <many-to-one name="recruiter" class="com.jianZhi.ssh.entities.Recruiter" lazy="false">
+            <column name="RECRUITER_ID" />
+        </many-to-one>
+        
+        <property name="context">
+            <column name="CONTEXT" sql-type="TEXT"/>
+        </property>
+    </class>
+</hibernate-mapping>

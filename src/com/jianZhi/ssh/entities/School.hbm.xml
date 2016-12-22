@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-28 9:37:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jianZhi.ssh.entities.School" table="SCHOOL">
+    
+        <id name="school_id" type="java.lang.Integer">
+            <column name="SCHOOL_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="schoolName" type="java.lang.String">
+            <column name="SCHOOL_NAME" />
+        </property>
+        
+        <many-to-one name="city" class="com.jianZhi.ssh.entities.City" lazy="false">
+            <column name="CITY_NAME" />
+        </many-to-one>
+        
+        <property name="district" type="java.lang.String">
+            <column name="DISTRICT" />
+        </property>
+        
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+    </class>
+</hibernate-mapping>

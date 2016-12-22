@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-28 9:37:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jianZhi.ssh.entities.City" table="CITY">
+    
+        <id name="cityName" type="java.lang.String">
+        
+            <column name="CITY_NAME" />
+            <generator class="assigned" />
+            
+        </id>
+    </class>
+    
+</hibernate-mapping>

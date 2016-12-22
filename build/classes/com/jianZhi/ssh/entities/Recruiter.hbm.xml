@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-28 9:37:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jianZhi.ssh.entities.Recruiter" table="RECRUITER">
+    
+        <id name="recruiter_id" type="java.lang.Integer">
+            <column name="RECRUITER_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="username" type="java.lang.String">
+            <column name="USER_NAME" />
+        </property>
+        
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        
+        <many-to-one name="company" class="com.jianZhi.ssh.entities.Company" lazy="false">
+            <column name="COMPANY_ID" />
+        </many-to-one>
+        
+        <property name="telphone" type="java.lang.String">
+            <column name="TELPHONE" />
+        </property>
+        
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        
+       	<set name="recruitments" table="RECRUITMENT" lazy="false">
+       		<key column="RECRUITER_ID"></key>
+       		<one-to-many class="com.jianZhi.ssh.entities.Recruitment"/>
+       	</set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-4-28 9:37:43 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.jianZhi.ssh.entities.Company" table="COMPANY">
+    
+        <id name="company_id" type="java.lang.Integer">
+            <column name="COMPANY_ID" />
+            <generator class="native" />
+        </id>
+        
+        <property name="companyName" type="java.lang.String">
+            <column name="COMPANY_NAME" />
+        </property>
+        
+        <many-to-one name="city" class="com.jianZhi.ssh.entities.City">
+            <column name="CITY_NAME" />
+        </many-to-one>
+        
+        <property name="district" type="java.lang.String">
+            <column name="DISTRICT" />
+        </property>
+        
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        
+        <property name="status" type="java.lang.String">
+        	<column name="STATUS"></column>
+        </property>
+    </class>
+</hibernate-mapping>

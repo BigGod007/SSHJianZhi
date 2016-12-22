@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.convention.classes.reload" value="true"></constant>
+
+
+	<package name="LoginOrRegister" namespace="/" extends="struts-default">
+
+		<global-results>
+			<result name="input"></result>
+		</global-results>
+
+		<action name="student-login" class="com.jianZhi.ssh.actions.StudentLoginAction"
+			method="login">
+			<result name="login">/WEB-INF/student/frame.jsp</result>
+			<result name="input">/StudentLogin.jsp</result>
+		</action>
+
+		<action name="student-register" class="com.jianZhi.ssh.actions.StudentAction"
+			method="register">
+			<result name="register" type="redirect">/StudentLogin.jsp</result>
+			<result name="input">/StudentRegister.jsp</result>
+		</action>
+
+		<action name="recruiter-login" class="com.jianZhi.ssh.actions.RecruiterLoginAction"
+			method="login">
+			<result name="login">/WEB-INF/recruiter/frame.jsp</result>
+			<result name="input">/RecruiterLogin.jsp</result>
+		</action>
+
+		<action name="recruiter-register" class="com.jianZhi.ssh.actions.RecruiterAction"
+			method="register">
+			<result name="register">/RecruiterLogin.jsp</result>
+			<result name="input">/RecruiterRegister.jsp</result>
+		</action>
+
+	</package>
+
+	<package name="Student" namespace="/student" extends="struts-default">
+		
+		<action name="getMine" class="com.jianZhi.ssh.actions.StudentAction"
+			method="getMine">
+			<result>/WEB-INF/student/mine.jsp</result>
+		</action>
+		
+		<action name="to-*">
+			<result>/WEB-INF/student/{1}.jsp</result>
+		</action>
+		
+		<action name="list" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="list">
+			<result>/WEB-INF/student/list.jsp</result>
+		</action>
+
+		<!-- json -->
+		<action name="login" class="com.jianZhi.ssh.actions.StudentAction"
+			method="login"></action>
+		<action name="register" class="com.jianZhi.ssh.actions.StudentAction"
+			method="registerJson"></action>
+		<action name="getById" class="com.jianZhi.ssh.actions.StudentAction"
+			method="getById"></action>
+		<action name="getRecruitments" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="getForStudent"></action>
+		<action name="flush" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="flush"></action>
+		<action name="getRecruitmentById" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="getRecruitmentByid"></action>
+		<action name="getRecruitmentsByRecruiterId" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="getRecruitmentsByRecruiterId"></action>
+
+	</package>
+
+	<package name="Recruiter" namespace="/recruiter" extends="struts-default">
+
+		<action name="*Recruitment" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="{1}">
+			<result type="redirectAction">/recruiter/getMine</result>
+			<result name="input"></result>
+		</action>
+
+		<action name="to-*">
+			<result>/WEB-INF/recruiter/{1}.jsp</result>
+		</action>
+
+		<action name="getMine" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="getMine">
+			<result>/WEB-INF/recruiter/mine.jsp</result>
+		</action>
+
+		<action name="list" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="list">
+			<result>/WEB-INF/recruiter/list.jsp</result>
+		</action>
+
+
+		<action name="login" class="com.jianZhi.ssh.actions.RecruiterAction"
+			method="login"></action>
+		<action name="register" class="com.jianZhi.ssh.actions.RecruiterAction"
+			method="registerJson"></action>
+		<action name="getById" class="com.jianZhi.ssh.actions.RecruiterAction"
+			method="getById"></action>
+		<action name="getRecruitments" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="getForRecruiter"></action>
+		<action name="getRecruitmentById" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="getRecruitmentByid"></action>
+		<action name="addRecruitments" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="insertAdd"></action>
+		<action name="getRecruitmentsByRecruiterId" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="getRecruitmentsByRecruiterId"></action>
+		<action name="deleteRecruitmentForAndroid" class="com.jianZhi.ssh.actions.RecruitmentAction"
+			method="deleteForAndroid"></action>
+	</package>
+
+</struts>
